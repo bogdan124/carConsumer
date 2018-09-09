@@ -1,0 +1,176 @@
+<style>
+iframe.ifrmae_mpas {
+    height: 501px;
+}
+</style>
+	<table class="mdl-data-table mdl-js-data-table mdl-cell mdl-cell--12-col mdl-data-table--selectable mdl-shadow--2dp"><!---->
+				  <thead>
+					<tr>
+					  <th class="mdl-data-table__cell--non-numeric">id</th>
+					  <th>Location</th>
+					  <th>Sity</th>
+					  <th>lat</th>
+					  <th>lon</th>
+					  <th>car_id</th>
+					  <th>status</th>
+					  <th>Show</th>
+			
+					</tr>
+				  </thead>
+				  <tbody class="add_car_type">
+				  
+					
+					
+				  </tbody>
+				  <tfoot>
+					<tr><th><button id="More_info" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+						More
+					</tfoot> </th></tr>
+					
+				</table>
+			
+
+   <dialog class="mdl-dialog" id="the_dialog">
+    <h4 class="mdl-dialog__title">Allow data collection?</h4>
+    <div class="mdl-dialog__content">
+      <p>
+<iframe src="/maps_show" class="ifrmae_mpas" ></iframe>
+
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <!--<button type="button" class="mdl-button">Agree</button>-->
+      <button type="button" class="mdl-button close" onclick="closeDialog()">Close</button>
+    </div>
+  </dialog>
+ 
+
+
+
+
+<script>
+  var start=0;
+		  var finish=3;
+		  
+		  	function ajax_call(){
+			
+		  $.ajax({
+				url: "/parking_2?id={{session['id']}}&connect=connect&start="+start+"&finish="+finish, 
+				method:"POST",
+				cache:false,
+				success: function(result){
+				console.log(result);
+				for(i=0;i<=result.length-1;i++){
+					 var template="<tr>"+
+					  "<td class='mdl-data-table__cell--non-numeric'>"+result[i][0]+"</td>"+
+					  "<td>"+result[i][1]+"</td>"+
+					  "<td>"+result[i][2]+"</td>"+
+					  "<td >"+result[i][3]+"</td>"+
+					  "<td>"+result[i][4]+"</td>"+
+					  "<td>"+result[i][5]+"</td>"+
+					  "<td >"+result[i][6]+"</td>"+
+					  "<td><button id='show-dialog_"+result[i][0]+"' type='button' onclick='initMap("+result[i][3]+","+result[i][4]+","+result[i][0]+")' class='mdl-button '>Location</button></th>"+
+					  
+					"</tr>";
+
+				$(".add_car_type").append(template);
+				}
+			}});
+			
+			}
+			
+			ajax_call(start,finish);
+		  $("#More_info").click(function(){
+		  
+		   start=finish;
+		   finish+=3;
+			ajax_call(start,finish);
+		   });
+
+</script>
+
+
+<style>
+#map {
+        height: 100%;
+      }
+	.mdl-dialog {
+    border: none;
+    box-shadow: 0 9px 46px 8px rgba(0,0,0,.14), 0 11px 15px -7px rgba(0,0,0,.12), 0 24px 38px 3px rgba(0,0,0,.2);
+    width: 1189px;
+    height: 89%;
+    top: 19px;
+}
+.mdl-dialog__content {
+    height: 75%;
+}
+.mdl-dialog__actions {
+    margin-top: 79px;
+}
+</style>
+
+
+    <script>
+	 var x = document.getElementById("the_dialog");
+  function showDialog() { 
+    x.show(); 
+} 
+
+function closeDialog() { 
+    x.close(); 
+} 
+   
+      function initMap(lat_1,lon_1,get_the_dialog) {
+        
+        /*  var uluru = {lat: parseFloat(lat_1) ,lng: parseFloat(lon_1)};
+ 
+	var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  
+	var marker = new google.maps.Marker({position: uluru, map: map});
+  */
+     showDialog();
+  
+  
+  
+  /* var dialog = document.querySelector('dialog');
+    var showDialogButton = document.querySelector("#show-dialog_"+get_the_dialog);
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+	*/
+	
+	/*
+	<div class="ui modal active">
+  <i class="close icon"></i>
+  <div class="header">
+    Modal Title
+  </div>
+  <div class="image content">
+    <div class="image">
+      An image can appear on left or an icon
+    </div>
+    <div class="description">
+      A description can appear on the right
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
+  </div>
+</div>
+	*/
+
+  }
+
+   
+    </script>
+	
+
+

@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mapfit Map</title>
+    <link href="https://cdn.mapfit.com/v2-4/assets/css/mapfit.css" rel='stylesheet' />
+</head>
+<body>
+    <div id="mapfit" style="width: 100%; height: 435px;"></div>
+    <script src="https://cdn.mapfit.com/v2-4/assets/js/tetragon.js"></script>
+    <script src="https://cdn.mapfit.com/v2-4/assets/js/mapfit.js"></script>
+    <script>
+      let map = mapfit.MapView('mapfit', {theme: 'day'});
+
+      position = mapfit.LatLng([44.449083, 26.069341])
+      myMarker = mapfit.Marker(position)
+      map.setCenter(position)
+      map.addMarker(myMarker);
+    </script>
+</body>
+</html>

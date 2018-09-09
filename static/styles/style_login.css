@@ -1,0 +1,121 @@
+
+	body {
+ 
+  background: #fafafa;
+ 
+}
+
+	header{
+	color:#b5b1da;
+	}
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+.mdl-card__title-text{
+color:black;
+}
+.mdl-card__title {
+    margin-left: 35%;
+    margin-top: -30px;
+}
+.login_form {
+    margin-left: 39%;
+}
+
+.demo-layout-transparent {
+ 
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+.demo-layout-transparent .mdl-layout__header, .demo-layout-transparent .mdl-layout__drawer-button {
+    color: white;
+    background-color: #3c3caf;
+}
+.login_form {
+    position: absolute;
+    top: 183px;
+}
+.mdl-card__title-text {
+    color: black;
+    font-size: 33px;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    filter: blur(3px);
+}
+.demo-card-wide.mdl-card {
+    width: 403px;
+    /* height: 110px; */
+}
+button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored {
+    margin-top: 34px;
+}
+#login_form {
+    margin-top: -25px;
+}
+.mdl-spinner.mdl-spinner--single-color.mdl-js-spinner.is-active.is-upgraded {
+    margin-top: 42px;
+}
+.use_our_api_title {
+    color: black;
+}
+.use_our_api_title {
+    margin-left: -114px;
+}
+.terms {
+    text-align: left;
+    margin-left: 27px;
+    margin-top: 14px;
+}
+.color_for_menu{
+color:rgba(255,255,255,.6) !important;
+    font-weight: 700  !important ;
+}
+.show_error {
+    margin-top: 39px;
+    width: 202px;
+}
+.activate_click {
+    border-bottom: 2px solid red;
+	color:#fff !important;
+	 font-weight: 700  !important ;
+}
+
+/*open loader*/
+.loader {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+}
+header.mdl-layout__header.mdl-layout__header--transparent.is-casting-shadow {
+    z-index: 1;
+}
+.login_form{
+	z-index:1;
+}
+.loader_spinner{
+    position: fixed;
+    top: 37%;
+    width: 75px;
+    height: 75px;
+}
+
+/*close loader*/
